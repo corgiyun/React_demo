@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>复合组件</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <style>
+    .color {
+      color: red
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    function Name(props) {
+      return <h1 style={{color: 'red'}}>网站名称：{props.name}</h1>
+    }
+    function Url(props) {
+      return <h1 className="color">网站地址：{props.url}</h1>
+    }
+    function Nickname(props) {
+      return <h1>网站昵称：{props.nickname}</h1>
+    }
+    // function App() {
+    //   return (
+    //     <div>
+    //       <Name name="React 学习" />
+    //       <Url url="wwww.baidu.com" />
+    //       <Nickname nickname="Baby" />  
+    //     </div>
+    //   )
+    // }
+    class App extends React.Component {
+      render() {
+        return (
+          <div>
+            <Name name="React 学习" />
+            <Url url="wwww.baidu.com" />
+            <Nickname nickname="Baby" />  
+          </div>
+        )
+      }
+    }
+    ReactDOM.render(
+      <App/>,
+      document.getElementById('root')
+    )
+  </script>
+  
+</body>
+
+</html>

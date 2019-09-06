@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Class</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <div id="example"></div>
+  <div id="add"></div>
+  <script type="text/babel">
+    const myStyle = {
+      color: 'red',
+      fontSize: 50
+    };
+    const arr = [
+      <h1>这个是标题</h1>,
+      <h2>这里是副标题</h2>,
+    ];
+    class Clock extends React.Component {
+      render() {
+        return (
+          <div>
+            <h1 style={myStyle}>现在是北京时间 {this.props.date.toLocaleTimeString()}</h1>
+          </div>
+        )
+      }
+    }
+    
+
+    function tick() {
+      ReactDOM.render(
+        <Clock date={new Date()}/>,
+        document.getElementById('example')
+      )
+    };
+    setInterval(tick, 1000);
+
+    ReactDOM.render(
+      <div>{arr}</div>,
+      document.getElementById('add')
+    )
+  </script>
+  
+</body>
+
+</html>
