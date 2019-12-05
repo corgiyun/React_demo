@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>事件处理</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <div id="example">
+            <a href="#" onClick="console.log('the link was clicked.'); return false">Click me</a>
+    </div>
+
+    <script type="text/babel">
+        class LoginBtn extends React.Component {
+            handClick = () => {
+                console.log('this. is:', this);
+                
+            }
+
+            render() {
+                return (
+                    <button onClick={this.handClick}>点击我</button>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <LoginBtn/>,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+
+</html>
