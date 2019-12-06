@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>列表 & key</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // 基本用法
+        // const numberList = [1, 2, 3, 4, 5]
+        // const LlList = numberList.map(item=> <li>{item * 2}</li>)
+
+        // ReactDOM.render (
+        //     <ul>{LlList}</ul>,
+        //     document.getElementById('root')
+        // )
+
+        // 基础列表组件
+        function NumberList(props) {
+            const numbers = props.numbers;
+            const LlList = numbers.map(item=> <li key={item.toString()}>{item * 2}</li>)
+            
+            return (
+                <ul>{LlList}</ul>
+            )
+        }
+
+        const numbers = [1, 2, 3, 4, 5]
+
+        ReactDOM.render(
+            <NumberList numbers={numbers}/>,
+            document.getElementById('root')
+        )
+
+    </script>
+</body>
+
+</html>
