@@ -13,7 +13,7 @@
 
 <body>
     <div id="root"></div>
-   
+
     <script type="text/babel">
         function WarningBanner(props) {
             if (!props.warn) {
@@ -30,7 +30,7 @@
             constructor(props) {
                 super(props)
                 this.state = {showWarning: false}
-            } 
+            }
 
             handlerClick = () => {
                 this.setState(state=> ({
@@ -43,9 +43,9 @@
                 return (
                     <div>
                         <WarningBanner warn={showWarning}/>
-                        <button onClick={this.handlerClick}>{showWarning? 'Hide': 'show'}</button>    
+                        <button onClick={this.handlerClick}>{showWarning? 'Hide': 'show'}</button>
                     </div>
-                    
+
                 )
             }
         }
