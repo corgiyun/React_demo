@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Form 表单</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class FormName extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {value: ''}
+                this.handleSubmit = this.handleSubmit.bind(this)
+                this.handleChange = this.handleChange.bind(this)
+            }
+
+            handleSubmit(e) {
+                alert(this.state.value)
+                e.preventDefault()
+            }
+
+            handleChange(e) {
+                this.setState({value: e.target.value})
+            }
+
+            render() {
+                return (
+                    <form onSubmit={this.handleSubmit}>
+                        <label>名字：
+                            <input type="text" value={this.state.value} onChange={this.handleChange} />    
+                        </label>
+                        <input type="submit"  value="提交"/>
+                    </form>
+                )
+            }
+        }
+
+        ReactDOM.render (
+            <FormName   />,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+
+</html>
